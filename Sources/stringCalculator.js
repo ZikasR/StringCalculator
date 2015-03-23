@@ -14,6 +14,11 @@ StringCalculator.prototype.add = function(numbers){
      num = numbers[i].split(delimiter);
 
      for (var j = 0; j < num.length; j++) {
+
+       if (num[j] < 0) {
+         throw new Error("negatives not allowed :" + num[j]);
+       }
+
        this.result += isNaN(parseInt(num[j])) ? 0 : parseInt(num[j]);
      }
    }

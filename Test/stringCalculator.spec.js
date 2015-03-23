@@ -33,8 +33,12 @@ describe('String Calculator', function() {
 			expect(calculator.add("1\n2,3")).toEqual(6);
 		});
 
-		it('should return three where the followinf input is ;\n1;2 and the default delimiter is ;', function(){
+		it('should return three where the following input is ;\n1;2 and the default delimiter is ;', function(){
 			expect(calculator.add(";\n1;2")).toEqual(3);
+		});
+
+		it('should throw an exception when a negative number is passed in arguments', function(){
+			expect(function(){calculator.add(";\n-1;2");}).toThrow(new Error('negatives not allowed :-1'));
 		});
 
 	});
